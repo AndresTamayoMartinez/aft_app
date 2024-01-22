@@ -17,7 +17,6 @@ const NavigationBar = () => {
             <div className='max-width'>
                 <div className="logo"><Link to={'/inicio'}>Acabados Finos Tamayo III</Link></div>
                 <ul className='menu'>
-                    <li><Link to={'/inicio'}>Inicio</Link></li>
                     <li><Link to={'/productos'}>Productos</Link></li>
                     <li><Link to={'/clientes'}>Clientes</Link></li>
                     <li><Link to={'/empleados'}>Empleados</Link></li>
@@ -27,6 +26,9 @@ const NavigationBar = () => {
                     <li><Link to={'/reportes'}>Reportes</Link></li>
                     <li onClick={handdleClick}><a>Cerrar Sesion</a></li>
                 </ul>
+                <div className="menu-btn">
+                    <i className="fas fa-bars"></i>
+                </div>
             </div>
         </nav>
     );

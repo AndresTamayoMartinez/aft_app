@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import NavigationBar from './components/component/NavigationBar';
-import Login from './components/views/Login';
+import LoginView from './components/views/Login_View';
 import Cookies from 'universal-cookie';
+import ProductsView from './components/views/Products_View';
 
 const App = () => {
 
@@ -11,7 +12,7 @@ const App = () => {
 
   if(cookies.get('token') == '' || cookies.get('token') == null){
     return(
-      <Login route={route} />
+      <LoginView route={route} />
     );
   } else{
     return(
@@ -21,7 +22,7 @@ const App = () => {
           <Route path={'/'} element={<h1>Hola Mundo</h1>} />
           <Route path={'/index.html'} element={<h1>Hola Mundo</h1>} />
           <Route path={'/inicio'} element={<h1>Hola Mundo</h1>} />
-          <Route path={'/productos'} element={<h1>Productos</h1>} />
+          <Route path={'/productos'} element={<ProductsView route={route} />} />
           <Route path={'/clientes'} element={<h1>Clientes</h1>} />
           <Route path={'/empleados'} element={<h1>Empleados</h1>} />
           <Route path={'/proveedores'} element={<h1>Proveedores</h1>} />

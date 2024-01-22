@@ -1,0 +1,44 @@
+.table-responsive{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 95%;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.table-responsive h1{
+    width: 95%;
+    align-items: center;
+}
+
+.table-responsive input[type=text]{
+    font-family: inherit;
+    width: 80%;
+    border: 0;
+    border-bottom: 2px solid gray;
+    outline: 0;
+    color: #000000;
+    padding: 2px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+    font-size: calc(5px + 1vw);
+    margin-bottom: 30px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead tr{
+    border-top: 3px solid #000000;
+    border-bottom: 3px solid #000000;
+    font-size: calc(10px + 0.390625vw);
+}
+
+tbody tr{
+    border-bottom: 2px solid #8d8d8d;
+    font-size: calc(9px + 0.390625vw);
+    text-align: center;
+}

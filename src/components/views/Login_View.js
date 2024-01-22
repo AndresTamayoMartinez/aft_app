@@ -3,13 +3,9 @@ import Cookies from 'universal-cookie';
 import '../css/Login.css'
 import loginImage from '../img/login_image.jpg'
 
-const Login = ({ route }) => {
+const LoginView = ({ route }) => {
 
   const cookies = new Cookies();
-  const [ ress, setRess ] = useState({
-    token: '',
-    message: ''
-  });
   const [ user, setUser ] = useState({
     username: '',
     password: ''
@@ -26,7 +22,7 @@ const Login = ({ route }) => {
     e.preventDefault();
     if(user.username === '' || user.password === ''){
       alert("Todos los campos son obligatorios");
-      return
+      return;
     }
 
     const requestInit = {
@@ -38,11 +34,7 @@ const Login = ({ route }) => {
         'Content-type': 'application/json'
       }
     };
-    // setRess({
-    //   ...ress,
-    //   token: data[0].token,
-    //   message: data[0].data[0].nombre
-    // })
+
     fetch(route + '/login/auth', requestInit)
       .then(res => res.json())
       .then(data => {
@@ -56,10 +48,8 @@ const Login = ({ route }) => {
           window.location.href = window.location.href;
         }
       })
-      .catch((err) => {
-        console.log(err);
-        localStorage.setItem('error', err)
-        alert('Error: ' + err)
+      .catch((error) => {
+        alert('Error: ', error)
       });
 
     setUser({
@@ -87,8 +77,7 @@ const Login = ({ route }) => {
         </div>
       </div>
     </div>
-    
   );
 };
 
-export default Login;
+export default LoginView;

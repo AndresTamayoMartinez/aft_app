@@ -17,7 +17,7 @@
 
 .navbar .logo a{
     color: #ffffff;
-    font-size: 35px;
+    font-size: calc(18px + 1vw);
     font-weight: 600;
     text-decoration: none;
 }
@@ -30,7 +30,7 @@
 
 .navbar .menu li a{
     color: #ffffff;
-    font-size: 18px;
+    font-size: calc(3px + 1vw);
     font-weight: 500;
     margin-left: 25px;
     transition: color 0.3s ease;
