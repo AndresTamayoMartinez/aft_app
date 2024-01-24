@@ -6,6 +6,7 @@ import ClientsView from './components/views/Clients_View';
 import ProductsView from './components/views/Products_View';
 import NavigationBar from './components/component/NavigationBar';
 import EmployeesView from './components/views/Employee_View';
+import ProvidersView from './components/views/Providers_View';
 
 const App = () => {
 
@@ -27,7 +28,7 @@ const App = () => {
           <Route path={'/productos'} element={<ProductsView route={route} />} />
           <Route path={'/clientes'} element={<ClientsView route={route} />} />
           <Route path={'/empleados'} element={<EmployeesView route={route} />} />
-          <Route path={'/proveedores'} element={<h1>Proveedores</h1>} />
+          <Route path={'/proveedores'} element={<ProvidersView route={route} />} />
           <Route path={'/ventas'} element={<h1>Ventas</h1>} />
           <Route path={'/ingresos'} element={<h1>Ingresos</h1>} />
           <Route path={'/reportes'} element={<h1>Reportes</h1>} />
