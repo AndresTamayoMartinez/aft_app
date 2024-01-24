@@ -5,6 +5,7 @@ import LoginView from './components/views/Login_View';
 import ClientsView from './components/views/Clients_View';
 import ProductsView from './components/views/Products_View';
 import NavigationBar from './components/component/NavigationBar';
+import EmployeesView from './components/views/Employee_View';
 
 const App = () => {
 
@@ -25,7 +26,7 @@ const App = () => {
           <Route path={'/inicio'} element={<h1>Hola Mundo</h1>} />
           <Route path={'/productos'} element={<ProductsView route={route} />} />
           <Route path={'/clientes'} element={<ClientsView route={route} />} />
-          <Route path={'/empleados'} element={<h1>Empleados</h1>} />
+          <Route path={'/empleados'} element={<EmployeesView route={route} />} />
           <Route path={'/proveedores'} element={<h1>Proveedores</h1>} />
           <Route path={'/ventas'} element={<h1>Ventas</h1>} />
           <Route path={'/ingresos'} element={<h1>Ingresos</h1>} />

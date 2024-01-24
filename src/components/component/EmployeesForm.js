@@ -1,18 +1,18 @@
-import '../css/ClientsForm.css'
+import '../css/EmployeesForm.css'
 import Cookies from 'universal-cookie';
 
-const ClientsForm = ({ route, client, setClient, edit, setEdit }) => {
+const EmployeesForm = ({ route, employee, setEmployee, edit, setEdit }) => {
     const cookies = new Cookies();
 
     const handleChange = e => {
-        setClient({
-            ...client,
+        setEmployee({
+            ...employee,
             [e.target.name]: e.target.value
         })
     };
 
     const handleSubmit = (e) => {
-        if(client.name === '' || client.street === '' || client.colony === '' || client.city === '' || client.phone === ''){
+        if(employee.name === '' || employee.phone === '' || employee.position === '' || employee.user === '' || employee.password === ''){
             alert("Todos los campos son obligatorios");
             e.preventDefault();
             return;
@@ -22,14 +22,14 @@ const ClientsForm = ({ route, client, setClient, edit, setEdit }) => {
             const requestInit = {
                 method: 'POST',
                 mode: 'cors',
-                body: JSON.stringify(client),
+                body: JSON.stringify(employee),
                 headers: {
                     'Access-Control-Allow-Origin': '*' ,
                     'Content-type': 'application/json'
                 }
             };
 
-            fetch(`${route}/api/client?accesstoken=${cookies.get('token')}`, requestInit)
+            fetch(`${route}/api/employee?accesstoken=${cookies.get('token')}`, requestInit)
                 .then(res => res.json())
                 .then(data => console.log(data))
                 .then(setEdit({
@@ -40,25 +40,25 @@ const ClientsForm = ({ route, client, setClient, edit, setEdit }) => {
                     alert('Error al : ', error)
             });
 
-            setClient({
+            setEmployee({
                 name: '',
-                street: '',
-                colony: '',
-                city: '',
-                phone: ''
+                phone: '',
+                position: '',
+                user: '',
+                password: ''
             });
         } else{
             const requestInit = {
                 method: 'PUT',
                 mode: 'cors',
-                body: JSON.stringify(client),
+                body: JSON.stringify(employee),
                 headers: {
                     'Access-Control-Allow-Origin': '*' ,
                     'Content-type': 'application/json'
                 }
             };
 
-            fetch(`${route}/api/client/${edit.id}?accesstoken=${cookies.get('token')}`, requestInit)
+            fetch(`${route}/api/employee/${edit.id}?accesstoken=${cookies.get('token')}`, requestInit)
                 .then(res => res.json())
                 .then(data => console.log(data))
                 .then(setEdit({
@@ -69,12 +69,12 @@ const ClientsForm = ({ route, client, setClient, edit, setEdit }) => {
                     console.log('Error al : ', error)
             });
 
-            setClient({
+            setEmployee({
                 name: '',
-                street: '',
-                colony: '',
-                city: '',
-                phone: ''
+                phone: '',
+                position: '',
+                user: '',
+                password: ''
             });
 
         }
@@ -82,22 +82,22 @@ const ClientsForm = ({ route, client, setClient, edit, setEdit }) => {
 
     return(
         <div className='form-responsive'>
-            <h1>Registrar Clientes</h1>
+            <h1>Registrar employeees</h1>
             <form onSubmit={handleSubmit}>
                 <label>Nombre</label>
-                <input type="text" name='name' className='inpLogin' onChange={handleChange} value={client.name}/>
-                <label>Calle</label>
-                <input type="text" name='street' className='inpLogin' onChange={handleChange} value={client.street} />
-                <label>Colonia</label>
-                <input type="text" name='colony' className='inpLogin' onChange={handleChange}  value={client.colony}  />
-                <label>Ciudad</label>
-                <input type="text" name='city' className='inpLogin' onChange={handleChange}  value={client.city} />
+                <input type="text" name='name' className='inpLogin' onChange={handleChange} value={employee.name}/>
                 <label>Telefono</label>
-                <input type="text" name='phone' className='inpLogin' onChange={handleChange}  value={client.phone} />
-                <input type='submit' name='client_btn' value='Registrar'></input>
+                <input type="text" name='phone' className='inpLogin' onChange={handleChange} value={employee.phone} />
+                <label>Puesto</label>
+                <input type="text" name='position' className='inpLogin' onChange={handleChange}  value={employee.position}  />
+                <label>Usuario</label>
+                <input type="text" name='user' className='inpLogin' onChange={handleChange}  value={employee.user} />
+                <label>Contrasena</label>
+                <input type="text" name='password' className='inpLogin' onChange={handleChange}  value={employee.password} />
+                <input type='submit' name='employee_btn' value='Registrar'></input>
             </form>
         </div>
     );
 };
 
-export default ClientsForm;
+export default EmployeesForm;
