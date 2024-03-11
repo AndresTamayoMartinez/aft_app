@@ -7,6 +7,7 @@ import ProductsView from './components/views/Products_View';
 import NavigationBar from './components/component/NavigationBar';
 import EmployeesView from './components/views/Employee_View';
 import ProvidersView from './components/views/Providers_View';
+import SalesView from './components/views/Sales_View';
 
 const App = () => {
 
@@ -29,7 +30,7 @@ const App = () => {
           <Route path={'/clientes'} element={<ClientsView route={route} />} />
           <Route path={'/empleados'} element={<EmployeesView route={route} />} />
           <Route path={'/proveedores'} element={<ProvidersView route={route} />} />
-          <Route path={'/ventas'} element={<h1>Ventas</h1>} />
+          <Route path={'/ventas'} element={<SalesView route={route} />} />
           <Route path={'/ingresos'} element={<h1>Ingresos</h1>} />
           <Route path={'/reportes'} element={<h1>Reportes</h1>} />
         </Routes>
