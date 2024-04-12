@@ -1,9 +1,11 @@
 import '../css/SalesForm.css'
+import Modal from './Modal';
 import Cookies from 'universal-cookie';
 import { useState } from 'react';
-import Modal from './Modal';
+import { useNavigate } from 'react-router-dom';
 
 const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
+    const navigate = useNavigate();
     const cookies = new Cookies();
     const [ modalClient, setModalClient ] = useState(false);
     const [ modalEmployee, setModalEmployee ] = useState(false);
@@ -21,8 +23,8 @@ const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
             e.preventDefault();
             return;
         }
-
         if(edit.id === 0 && edit.saleType === 'new'){
+            e.preventDefault();
             const requestInit = {
                 method: 'POST',
                 mode: 'cors',
@@ -35,13 +37,13 @@ const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
 
             fetch(`${route}/api/sale?accesstoken=${cookies.get('token')}`, requestInit)
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => cookies.set('idSale', data.id, {path: "/"}))
                 .then(setEdit({
                     id: 0,
                     edit: false
                 }))
                 .catch((error) => {
-                    alert('Error al : ', error)
+                    alert('Error al : ', error);
             });
 
             setSale({
@@ -54,7 +56,12 @@ const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
                 abono: 0,
                 total: 0
             });
+
+            setTimeout(() => {
+                navigate('/detalle_venta');
+            }, 2000);
         } else{
+            e.preventDefault();
             const requestInit = {
                 method: 'PUT',
                 mode: 'cors',
@@ -86,6 +93,10 @@ const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
                 abono: 0,
                 total: 0
             });
+
+            setTimeout(() => {
+                navigate('/detalle_venta');
+            }, 500);
         }
     };
 
@@ -122,11 +133,11 @@ const SalesForm = ({ route, sale, setSale, edit, setEdit }) => {
                     <label onClick={() => {setModalEmployee(true)}}>Seleccionar Empleado</label>
                 </div>
                 <label>subtotal</label>
-                <input type="text" name='subtotal' className='inpLogin' onChange={handleChange}  value={sale.subtotal} />
+                <input type="text" name='subtotal' className='inpLogin' onChange={handleChange}  value={sale.subtotal} readOnly />
                 <label>abono</label>
-                <input type="text" name='abono' className='inpLogin' onChange={handleChange}  value={sale.abono} />
+                <input type="text" name='abono' className='inpLogin' onChange={handleChange}  value={sale.abono} readOnly />
                 <label>total</label>
-                <input type="text" name='total' className='inpLogin' onChange={handleChange}  value={sale.total} />
+                <input type="text" name='total' className='inpLogin' onChange={handleChange}  value={sale.total} readOnly />
                 <input type='submit' name='sale_btn' value='Registrar'></input>
             </form>
             <Modal

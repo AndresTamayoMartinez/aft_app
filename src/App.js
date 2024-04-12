@@ -8,6 +8,7 @@ import NavigationBar from './components/component/NavigationBar';
 import EmployeesView from './components/views/Employee_View';
 import ProvidersView from './components/views/Providers_View';
 import SalesView from './components/views/Sales_View';
+import SalesDetailView from './components/views/Sales_Detail_View';
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route path={'/ventas'} element={<SalesView route={route} />} />
           <Route path={'/ingresos'} element={<h1>Ingresos</h1>} />
           <Route path={'/reportes'} element={<h1>Reportes</h1>} />
+          <Route path={'/detalle_venta'} element={<SalesDetailView route={route} />} />
         </Routes>
       </div>
     );

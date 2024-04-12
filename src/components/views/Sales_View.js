@@ -3,8 +3,6 @@ import Cookies from 'universal-cookie';
 import { useState, useEffect } from 'react';
 import SalesTable from '../component/SalesTable';
 import SalesForm from '../component/SalesForm';
-// import SalesDetTable from '../component/SalesDetTable';
-// import SalesDetForm from '../component/SalesTable';
 
 const SalesView = ({ route }) => {
 
@@ -61,14 +59,6 @@ const SalesView = ({ route }) => {
                     <SalesForm route={route} sale={sale} setSale={setSale} edit={edit} setEdit={setEdit} />
                 </div>
             </div>
-            {/* <div className='max-width sales-content'>
-                <div className='table-container'>
-                    <SalesDetTable route={route} sales={sales} setSale={setSale} edit={edit} setEdit={setEdit} setSales={setSales} />
-                </div>
-                <div className='sale-form'>
-                    <SalesDetForm route={route} sale={sale} setSale={setSale} edit={edit} setEdit={setEdit} />
-                </div>
-            </div> */}
         </div>
     );
 }

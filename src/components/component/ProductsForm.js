@@ -1,5 +1,6 @@
 import '../css/ProductsForm.css'
 import Cookies from 'universal-cookie';
+import { Link } from 'react-router-dom';
 import BrandSelect from './BrandSelect';
 import CategorySelect from "./CategorySelect";
 
@@ -30,7 +31,7 @@ const ProductsForm = ({ route, product, setProduct, edit, setEdit }) => {
                 }
             };
 
-            fetch(`${route}/api/product?accesstoken=${cookies.get('token')}`, requestInit)
+            fetch(`${route}/api/sale_detail?accesstoken=${cookies.get('token')}`, requestInit)
                 .then(res => res.json())
                 .then(data => console.log(data))
                 .then(setEdit({
@@ -50,6 +51,7 @@ const ProductsForm = ({ route, product, setProduct, edit, setEdit }) => {
                 id_category: 0,
                 id_brand: 0
             });
+            window.location.reload();
         } else{
             const requestInit = {
                 method: 'PUT',
@@ -81,7 +83,7 @@ const ProductsForm = ({ route, product, setProduct, edit, setEdit }) => {
                 id_category: 0,
                 id_brand: 0
             });
-
+            window.location.reload();
         }
     };
 

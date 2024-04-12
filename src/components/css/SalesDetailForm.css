@@ -35,8 +35,7 @@ form input[type=text]{
     padding: 2px 0;
     background: transparent;
     transition: border-color 0.2s;
-    font-size: calc(3px + 1vw);
-    text-align: center;
+    font-size: calc(2px + 1vw);
 }
 
 form input[type=submit]{
@@ -79,6 +78,10 @@ form .div_select input[type=text]{
     width: 50%;
 }
 
+form .div_select label:hover{
+    cursor: pointer;
+}
+
 form .pd-container{
     display: flex;
     justify-content: space-evenly;
@@ -92,6 +95,11 @@ form .pd-container div{
     align-items: center;
 }
 
+.div-delivered{
+    margin: 10px 0px;
+    text-align: center;
+}
+
 @media (max-width: 650px){
     form label{
         font-size: calc(15px + 1vw);
@@ -102,8 +110,7 @@ form .pd-container div{
     form input[type=text]{
         font-size: calc(10px + 1vw);
     }
-
-    form .link input[type=submit]{
+    form input[type=submit]{
         font-size: calc(20px + 1vw);
     }
     

@@ -26,6 +26,12 @@
     margin-bottom: 30px;
 }
 
+.table{
+    max-height: 420px;
+    overflow-y: scroll;
+    width: 100%;
+}
+
 table{
     width: 100%;
     border-collapse: collapse;

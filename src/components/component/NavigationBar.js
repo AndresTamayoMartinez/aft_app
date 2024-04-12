@@ -23,7 +23,7 @@ const NavigationBar = () => {
                     <li><Link to={'/proveedores'}>Proveedores</Link></li>
                     <li><Link to={'/ventas'}>Ventas</Link></li>
                     <li><Link to={'/ingresos'}>Ingresos</Link></li>
-                    <li><Link to={'/reportes'}>Reportes</Link></li>
+                    <li><Link to={'/detalle_venta'}>Reportes</Link></li>
                     <li onClick={handdleClick}><a>Cerrar Sesion</a></li>
                 </ul>
                 <div className="menu-btn">
